@@ -1,10 +1,15 @@
 arr = [2,4,1,7,3]
 
-prefix = [0] * len(arr)
+# prefix = [0] * len(arr)
 
-prefix[0] = arr[0]
+# prefix[0] = arr[0]
+
+# for i in range(1,len(arr)):
+#     prefix[i] = prefix[i-1] + arr[i]
+    
+# print(prefix)
 
 for i in range(1,len(arr)):
-    prefix[i] = prefix[i-1] + arr[i]
+    arr[i] = arr[i] + arr[i-1]
     
-print(prefix)
+print(arr)
