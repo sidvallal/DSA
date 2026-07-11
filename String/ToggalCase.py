@@ -13,3 +13,6 @@ for i in str :
 print(res)
 
 # print(str.swapcase())
+
+# chr = covert to char
+# ord = to get ASCII code of charector
