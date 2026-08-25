@@ -36,7 +36,26 @@ class Linkedlist:
 
         return self.head
 
+    def deltail(self,head):
+        if self.head == None or self.head.next == None:
+            return None
+
+        tail = self.head
+
+        while tail.next is not None:
+            tail = tail.next
+
+        back = tail.prev
+        tail.prev = None
+        back.next = None
+
+        return self.head
+
+
+
 mylist = Linkedlist()
 head = mylist.array2dll([1,2,3,4,5])
-ans = mylist.delfirst(head)
+# ans = mylist.delfirst(head)
+# mylist.traval(ans)
+ans = mylist.deltail(head)
 mylist.traval(ans)
