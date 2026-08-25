@@ -51,11 +51,42 @@ class Linkedlist:
 
         return self.head
 
+    
+    def KthNode(self,head,k):
+
+        cnt = 0
+        temp = head
+        while temp is not None:
+            if cnt == k:
+                break
+            temp = temp.next
+            cnt +=1
+
+        if temp is None:
+            return self.head
+
+        back = temp.prev
+        front = temp.next
+
+        if back == None and front == None:
+            return None
+        elif back == None:
+            self.delfirst(head)
+        elif front == None:
+            self.deltail(head)
+
+        else:
+            back.next = temp.next
+            front.prev= temp.prev
+
+        return self.head
 
 
 mylist = Linkedlist()
 head = mylist.array2dll([1,2,3,4,5])
 # ans = mylist.delfirst(head)
 # mylist.traval(ans)
-ans = mylist.deltail(head)
+# ans = mylist.deltail(head)
+# mylist.traval(ans)
+ans = mylist.KthNode(head,2)
 mylist.traval(ans)
