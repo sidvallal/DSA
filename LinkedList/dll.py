@@ -25,6 +25,18 @@ class Linkedlist:
             print(temp.data, end=" ")
             temp = temp.next
 
+    def delfirst(self,head):
+        if self.head == None or self.head.next == None:
+            return None
+
+        prev = self.head
+        self.head = self.head.next
+        self.head.prev = None
+        prev.next = None
+
+        return self.head
+
 mylist = Linkedlist()
 head = mylist.array2dll([1,2,3,4,5])
-mylist.traval(head)
+ans = mylist.delfirst(head)
+mylist.traval(ans)
