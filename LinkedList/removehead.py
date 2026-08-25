@@ -86,6 +86,24 @@ class linkedList:
             temp = temp.next
         return head
     
+    def deleteElement(self,head,el):
+            if head == None:
+                return head
+            if head.data == el :
+                temp = head
+                head = head.next
+                return head
+            temp = head
+            prev = None
+            while temp is not None:
+                if temp.data == el:
+                    prev.next = prev.next.next
+                    break
+                prev = temp
+                temp = temp.next
+            return head
+        
+    
 arr = [1,2,3,4,5]
 mylist = linkedList()
 head = mylist.arr2list(arr)
@@ -94,7 +112,9 @@ head = mylist.arr2list(arr)
 # print(ans)
 # ans = mylist.removetail(head)
 # mylist.traval(ans)
-ans = mylist.deleteK(head,4)
+# ans = mylist.deleteK(head,4)
+# mylist.traval(ans)
+ans = mylist.deleteElement(head,4)
 mylist.traval(ans)
 
 
