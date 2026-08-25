@@ -66,12 +66,35 @@ class linkedList:
         current.next = None
         return head
 
+    def deleteK(self,head,k):
+        if head == None:
+            return head
+        if head.next == None:
+            temp = head
+            head = head.next
+            return head
+        cnt = 0
+        temp = head
+        prev = None
+
+        while temp is not None:
+            cnt +=1
+            if cnt == k:
+                prev.next = prev.next.next
+                break
+            prev = temp
+            temp = temp.next
+        return head
+    
 arr = [1,2,3,4,5]
 mylist = linkedList()
 head = mylist.arr2list(arr)
-mylist.traval(head)
+# mylist.traval(head)
 # ans = mylist.removehead(head)
 # print(ans)
-ans = mylist.removetail(head)
+# ans = mylist.removetail(head)
+# mylist.traval(ans)
+ans = mylist.deleteK(head,4)
 mylist.traval(ans)
+
 
