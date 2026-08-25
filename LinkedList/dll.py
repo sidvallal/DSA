@@ -95,7 +95,19 @@ class Linkedlist:
 
         return head
         
+    def addfirst(self,head,k):
 
+        new_node = Node(k,None,None)
+
+        if head == None:
+            self.head = new_node
+            return self.head
+        
+        new_node.next = self.head
+        self.head.prev = new_node
+        self.head = new_node
+
+        return new_node
 mylist = Linkedlist()
 head = mylist.array2dll([1,2,3,4,5])
 # ans = mylist.delfirst(head)
