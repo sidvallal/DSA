@@ -127,7 +127,31 @@ class Linkedlist:
 
         return self.head
         
-            
+    def addatKthNode(self,head,k,index):
+        
+        temp = head
+        cnt = 0
+        while temp is not None:
+            if cnt == index:
+                break
+            temp = temp.next
+            cnt +=1
+
+        if temp == None:
+            return self.head
+
+        back = temp.prev
+
+        if back is None:
+            return self.addfirst(head,k)
+
+        new_node = Node(k,None,None)
+
+        new_node.next = temp
+        back.next = new_node
+        new_node.prev = back
+        temp.prev = new_node
+
 mylist = Linkedlist()
 head = mylist.array2dll([1,2,3,4,5])
 # ans = mylist.delfirst(head)
