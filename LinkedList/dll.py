@@ -108,11 +108,35 @@ class Linkedlist:
         self.head = new_node
 
         return new_node
+
+    def addlast(self,head,k):
+
+        new_node = Node(k,None,None)
+
+        temp = self.head
+
+        if temp == None:
+            self.head = new_node
+            return self.head
+
+        while temp.next is not None:
+            temp = temp.next
+
+        temp.next = new_node
+        new_node.prev = temp
+
+        return self.head
+        
+            
 mylist = Linkedlist()
 head = mylist.array2dll([1,2,3,4,5])
 # ans = mylist.delfirst(head)
 # mylist.traval(ans)
 # ans = mylist.deltail(head)
 # mylist.traval(ans)
-ans = mylist.KthNode(head,2)
+# ans = mylist.KthNode(head,2)
+# mylist.traval(ans)
+# ans = mylist.addfirst(head,0)
+# mylist.traval(ans)
+ans = mylist.addlast(head,6)
 mylist.traval(ans)
