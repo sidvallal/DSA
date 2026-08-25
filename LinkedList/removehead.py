@@ -52,12 +52,26 @@ class linkedList:
         head=head.next
 
         return head.data
+    def removetail(self,head):
+        if head == None:
+            return head
+        if head.next == None:
+            return head
+        
+        current = head
+
+        while current.next.next is not None:
+            current = current.next
+
+        current.next = None
+        return head
 
 arr = [1,2,3,4,5]
 mylist = linkedList()
 head = mylist.arr2list(arr)
 mylist.traval(head)
-ans = mylist.removehead(head)
-print(ans)
-
+# ans = mylist.removehead(head)
+# print(ans)
+ans = mylist.removetail(head)
+mylist.traval(ans)
 
