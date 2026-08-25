@@ -50,7 +50,6 @@ class Linkedlist:
         back.next = None
 
         return self.head
-
     
     def KthNode(self,head,k):
 
@@ -81,6 +80,21 @@ class Linkedlist:
 
         return self.head
 
+    def deleteNode(self,head):
+
+        temp = head
+
+        front = temp.next
+        back = temp.prev
+
+        if front == None:
+            back.next = None
+
+        back.next = front
+        front.prev = back
+
+        return head
+        
 
 mylist = Linkedlist()
 head = mylist.array2dll([1,2,3,4,5])
