@@ -5,12 +5,17 @@ class Node:
         self.right = None
 
 def depth(root):
-    if root is None:
-        return 0
-    rl = depth(root.left)
-    rr = depth(root.right)
+        if root is None:
+            return 0
 
-    return 1 + min(rl,rr)
+        if root.left is None:
+            return 1 + depth(root.right)
+
+        if root.right is None:
+            return 1 + depth(root.left)
+
+        return 1 + min(depth(root.left),
+                       depth(root.right))
 
 root = Node(10)
 root.left = Node(5)
