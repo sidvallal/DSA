@@ -18,9 +18,7 @@ def name(i,n):
 def backtrack(i,n):
     if i<1:
         return
-
     backtrack(i-1,n)
-
     print(i)
 
 # name(1,5)
